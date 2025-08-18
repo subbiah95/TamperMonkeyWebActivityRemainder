@@ -296,7 +296,7 @@
 
         // Check for milestone notifications (every 5 minutes)
         let currentMinutes = Math.floor(elapsed / (1000 * 60));
-        if (currentMinutes > 0 && currentMinutes >= lastNotificationMinutes+5) {
+        if (currentMinutes > 0 && currentMinutes%5 == 0 && currentMinutes > lastNotificationMinutes) {
             showNotificationBanner(currentMinutes);
             lastNotificationMinutes = currentMinutes;
         }
